@@ -1,0 +1,18 @@
+.square {
+  width: 100%;
+  padding-top: 25%; /* Maintain a 1:1 aspect ratio for square squares */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem; /* Adjust the font size as needed for smaller squares */
+}
+
+.black {
+  background-color: white; /* Dark brown or your preferred color for black squares */
+  color: black; /* Text color for black squares */
+}
+
+.white {
+  background-color: black; /* Light brown or your preferred color for white squares */
+  color: white; /* Text color for white squares */
+}
