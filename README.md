@@ -1,1 +1,1 @@
-# table-top-challenge-front
+# strato-chess-front
