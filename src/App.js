@@ -2,7 +2,7 @@
 import React from 'react';
 import Chessboard from './components/Chessboard';
 import './App.css';
-import useTest from './hook/useTest';
+import useTest from './hooks/useTest';
 
 const App = () => {
   const { opponentName, loading, error } = useTest();
