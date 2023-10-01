@@ -1,0 +1,14 @@
+version: '3'
+services:
+  strato-chess-front:
+    build:
+      context: .  # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile  # Name of the Dockerfile for front-end
+    container_name: strato-chess-front
+    ports:
+      - "3000:3000"  # Map port 3000 inside the container to port 3000 on the host
+    networks:
+      - strato-chess-network  # Connect to the custom network
+
+networks:
+  strato-chess-network:  # Define the custom network

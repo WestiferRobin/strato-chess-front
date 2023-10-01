@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:20.1.0 as build
+FROM node:16 as builder
 
 # Set the working directory in the container
 WORKDIR /app
@@ -7,23 +7,17 @@ WORKDIR /app
 # Copy package.json and yarn.lock to the working directory
 COPY package.json yarn.lock ./
 
-# Install project dependencies using Yarn
+# Install dependencies using Yarn
 RUN yarn install
 
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Build the React app
+# Build the React application for production
 RUN yarn build
 
-# Use an official Nginx runtime as a parent image
-FROM nginx:alpine
+# Expose port 3000, which is the port where the React app will run
+EXPOSE 3000
 
-# Copy the built React app from the previous stage to the Nginx public directory
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Command to start the React app
+CMD ["yarn", "start"]
