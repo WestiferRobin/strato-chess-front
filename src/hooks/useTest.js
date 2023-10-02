@@ -11,7 +11,7 @@ const useTest = () => {
     async function fetchName() {
       try {
         const name = await fetchTest();
-        setTest(`${name.firstName} ${name.lastName}`);
+        setTest(`${name.name}`);
       } catch (error) {
         setError(error);
       } finally {

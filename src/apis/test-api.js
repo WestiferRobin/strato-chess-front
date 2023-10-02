@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const TEST_ENDPOINT = 'http://localhost:5154/test' // MAC
-// const TEST_ENDPOINT = 'https://localhost:7016/test' // wINDOWS
+const TEST_ENDPOINT = 'http://localhost:5154/players/1';
 
 // Simulate fetching the opponent's name from the API
 export const fetchTest = async () => {
