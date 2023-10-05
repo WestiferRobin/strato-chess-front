@@ -1,0 +1,20 @@
+/* Square.css */
+.square {
+  width: 5.875vw;
+  height: 5.875vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center; /* Center text horizontally */
+}
+
+.black {
+  background-color: black;
+  color: #fff;
+}
+
+.white {
+  background-color: white;
+  color: #000;
+}

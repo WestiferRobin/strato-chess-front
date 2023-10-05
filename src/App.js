@@ -1,8 +1,9 @@
 // App.js
 import React from 'react';
-import Chessboard from './components/Chessboard';
 import './App.css';
 import useTest from './hooks/useTest';
+import Chessboard from './components/board/Chessboard';
+
 
 const App = () => {
   const { opponentName, loading, error } = useTest();
@@ -17,7 +18,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Strato Chess!</h1>
-      {renderTitle()}
+      {/* {renderTitle()} */}
       <Chessboard />
     </div>
   );
