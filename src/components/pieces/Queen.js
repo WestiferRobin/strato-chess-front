@@ -1,12 +1,14 @@
 import React from 'react';
+import { PIECE_HEIGHT, PIECE_WIDTH } from '../../constants';
 
-const Queen = () => {
+const Queen = ({primaryColor, secondaryColor}) => {
+
   const queenStyle = {
     opacity: 1,
-    fill: '#ffffff',
+    fill: primaryColor,
     fillOpacity: 1,
     fillRule: 'evenodd',
-    stroke: '#000000',
+    stroke: secondaryColor,
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -16,7 +18,7 @@ const Queen = () => {
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+    <svg xmlns="http://www.w3.org/2000/svg" width={`${PIECE_WIDTH}`} height={`${PIECE_HEIGHT}`} viewBox={`0 0 ${PIECE_WIDTH} ${PIECE_HEIGHT}`}>
       <g style={queenStyle}>
         <path
           d="M 9 13 A 2 2 0 1 1  5,13 A 2 2 0 1 1  9 13 z"

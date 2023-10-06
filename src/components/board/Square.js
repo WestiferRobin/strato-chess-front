@@ -1,11 +1,11 @@
 import React from 'react';
 import './Square.css';
 
-const Square = ({ isBlack, isHighlighted, children, onClick }) => {
+const Square = ({ isBlack, isSelected, children, onClick }) => {
   const squareClassName = isBlack ? 'square black' : 'square white';
 
-  // Apply the "highlighted" class when the square is highlighted
-  const squareClasses = `${squareClassName} ${isHighlighted ? 'highlighted' : ''}`;
+  // Apply the "selected" class when the square is selected
+  const squareClasses = `${squareClassName} ${isSelected ? 'selected' : ''}`;
 
   return (
     <div className={squareClasses} onClick={onClick}>

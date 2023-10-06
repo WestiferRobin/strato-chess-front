@@ -1,19 +1,19 @@
 // App.js
 import React from 'react';
 import './App.css';
-import useTest from './hooks/useTest';
+// import useTest from './hooks/useTest';
 import Chessboard from './components/board/Chessboard';
 
 
 const App = () => {
-  const { opponentName, loading, error } = useTest();
+  // const { opponentName, loading, error } = useTest();
 
-  const renderTitle = () => {
-    if (loading) return <></>
-    return  error ? (
-      <p>Error: {error.message}</p>
-    ) : <p>Opponent: {opponentName}</p>
-  }
+  // const renderTitle = () => {
+  //   if (loading) return <></>
+  //   return  error ? (
+  //     <p>Error: {error.message}</p>
+  //   ) : <p>Opponent: {opponentName}</p>
+  // }
 
   return (
     <div className="App">

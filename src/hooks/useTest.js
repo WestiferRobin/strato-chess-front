@@ -1,4 +1,3 @@
-// hooks/useTest.js
 import { useEffect, useState } from 'react';
 import { fetchTest } from '../apis/test-api';
 

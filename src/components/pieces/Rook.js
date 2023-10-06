@@ -1,12 +1,14 @@
 import React from 'react';
+import { PIECE_HEIGHT, PIECE_WIDTH } from '../../constants';
 
-const Rook = () => {
+const Rook = ({primaryColor, secondaryColor}) => {
+
   const rookStyle = {
     opacity: 1,
-    fill: '#ffffff',
+    fill: primaryColor,
     fillOpacity: 1,
     fillRule: 'evenodd',
-    stroke: '#000000',
+    stroke: secondaryColor,
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -16,7 +18,7 @@ const Rook = () => {
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+    <svg xmlns="http://www.w3.org/2000/svg" width={`${PIECE_WIDTH}`} height={`${PIECE_HEIGHT}`} viewBox={`0 0 ${PIECE_WIDTH} ${PIECE_HEIGHT}`}>
       <g style={rookStyle}>
         <path
           d="M 9,39 L 36,39 L 36,36 L 9,36 L 9,39 z"
@@ -42,7 +44,7 @@ const Rook = () => {
         />
         <path
           d="M 11,14 L 34,14"
-          style={{ fill: 'none', stroke: '#000000', strokeLinejoin: 'miter' }}
+          style={{ fill: 'none', stroke: secondaryColor, strokeLinejoin: 'miter' }}
         />
       </g>
     </svg>

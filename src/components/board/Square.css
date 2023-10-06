@@ -7,14 +7,30 @@
   align-items: center;
   font-size: 1rem;
   text-align: center; /* Center text horizontally */
+  transition: background-color 0.3s ease; /* Add a smooth transition */
 }
 
+/* Define the default colors */
 .black {
-  background-color: black;
-  color: #fff;
+  background-color: grey;
+  color: lightgrey;
 }
 
 .white {
-  background-color: white;
-  color: #000;
+  background-color: lightgrey;
+  color: grey;
+}
+
+/* Change colors on hover (highlight) */
+.square:hover {
+  background-color: yellow;
+}
+
+.selected {
+  background-color: cyan;
+  color: orange;
+}
+
+.selected:hover {
+  background-color: cyan;
 }
