@@ -5,7 +5,13 @@
 - Run: docker run -d -p 80:80 strato-chess-front
 
 ## TODO:
-- Establish color per piece
-- Create Player Componets
-    - Player with pieces
-    - Link with backend
+- Create game session
+    - session has ID
+    - session is associated with
+        - Current Board
+        - User Player (Ally)
+        - Enemy Player
+        - Pieces
+            - On board
+            - Removed
+        - History of Moves

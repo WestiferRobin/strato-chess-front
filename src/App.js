@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Strato Chess!</h1>
+      <h1>Strato Chess! {"Wes vs Alpha"}</h1>
       {/* {renderTitle()} */}
       <Chessboard />
     </div>
