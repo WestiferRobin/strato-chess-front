@@ -11,51 +11,70 @@ const StatSheet = ({ ownerName, primaryColor, secondaryColor }) => {
   const piecePoints = 39;
 
   const renderGraveyard = () => {
-    return <Paper variant="elevation" elevation={24} sx={{ margin: '5%', marginTop: "0", height: "15vh", background: "lightgrey" }}>
-      <h3 style={{marginBottom: 5, marginTop: 5}}>Points: {piecePoints}</h3>
-      <Stack direction="row" sx={{margin: 5, marginTop: 0, marginBottom: 0}}>
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />
+    const firstRow = []
+    const lastRow = []
+    for (let index = 0; index < 8; index++) {
+      firstRow.push(<Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+      switch (index) {
+        case 0:
+        case 1:
+          lastRow.push(<Bishop primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+          break;
+        case 2:
+        case 3:
+          lastRow.push(<Knight primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+          break;
+        case 4:
+        case 5:
+          lastRow.push(<Rook primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+          break;
+        case 6:
+          lastRow.push(<Queen primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+          break;
+        case 7:
+          lastRow.push(<King primaryColor={primaryColor} secondaryColor={secondaryColor} />)
+          break;
+        default:
+          break;
+      }
+    }
+
+    return <Paper variant="elevation" elevation={24} sx={{ margin: '5%', marginTop: "0", height: "10%", background: "lightgrey" }}>
+      {/* <h3 style={{marginBottom: 5, marginTop: 5}}> */}
+      <h3>
+        Points: {piecePoints}
+      </h3>
+      {/* <Stack direction="row" sx={{margin: 5, marginTop: 0, marginBottom: 0}}> */}
+      <Stack direction="row">
+        {firstRow}
       </Stack>
-      <Stack direction="row" sx={{margin: 5, marginTop: 0}}>
-        <Bishop primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Bishop primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Knight primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Knight primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Rook primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Rook primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <Queen primaryColor={primaryColor} secondaryColor={secondaryColor} />
-        <King  primaryColor={primaryColor} secondaryColor={secondaryColor} />
+      {/* <Stack direction="row" sx={{margin: 5, marginTop: 0}}> */}
+      <Stack direction="row">
+        {lastRow}
       </Stack>
     </Paper>
   }
 
   const renderPlayedMoves = () => {
     const moveHistory = []
-    for (let index = 1; index <= 8; index += 1) {
+    for (let index = 1; index <= 10; index += 1) {
       moveHistory.push(<>
         <div><h3>{`${index}: e8`}</h3></div>
         <Divider/>
       </>)
     }
-    return <Paper variant="elevation" elevation={24} sx={{ margin: '5%', marginTop: "0", height: "60vh", background: "lightgrey" }}>
-      <h4 style={{marginBottom: 5, marginTop: 5}}>Moves Played</h4>
-      <Box style={{background: primaryColor, height: "90%", margin: "5%", overflowY: "scroll"}}>
-      <Stack>
-        {moveHistory}
-      </Stack>
+    return <Paper variant="elevation" elevation={24} sx={{ margin: '5%', height: "50%", background: "lightgrey" }}>
+      <h4>Moves Played</h4>
+      <Box style={{background: primaryColor, height: "43vh", overflowY: "scroll"}}>
+        <Stack>
+          {moveHistory}
+        </Stack>
       </Box>
     </Paper>
   }
 
   return (
-    <Paper variant="elevation" sx={{ width: '25vw', height: '88vh', backgroundColor: "grey" }} elevation={10}>
+    <Paper variant="elevation" sx={{ width: '25%', height: '100%', backgroundColor: "grey" }} elevation={10}>
       <h2>{ownerName}</h2>
       <Stack>
         {renderGraveyard()}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ClassicView from './components/view/ClassicView';
+import ClassicView from './view/ClassicView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import BrowserRouter
 
 const App = () => {

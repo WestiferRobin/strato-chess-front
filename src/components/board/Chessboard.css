@@ -4,7 +4,7 @@
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 0;
   width: 42vw; /* Adjust the size as needed to fit the majority of the board */
-  height: 42vw; /* Set the height to match the width for a square chessboard */
+  height: 100%; /* Set the height to match the width for a square chessboard */
   background-color: greenyellow; /* Light brown or your preferred background color */
   border: 2px solid black; /* Dark brown or your preferred border color */
   margin: 0 auto; /* Center the chessboard horizontally */
