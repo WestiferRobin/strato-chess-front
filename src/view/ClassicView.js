@@ -25,7 +25,7 @@ const ClassicView = () => {
         {renderTitle()}
         <Stack direction="row" spacing={2} sx={{ margin: 3, justifyContent: 'space-between', }}> {/* Use justifyContent */}
             {renderSheet(playerName, allyPrimaryColor, allySecondaryColor)}
-            <Chessboard />
+            <Chessboard style={{ flex: '1' }}/>
             {renderSheet(aiName, enemyPrimaryColor, enemySecondaryColor)}
         </Stack>
     </Box>

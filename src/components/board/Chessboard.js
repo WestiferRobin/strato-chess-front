@@ -116,7 +116,7 @@ const Chessboard = () => {
   };
 
   return (
-    <div className="chessboard">
+    <div className="chessboard" style={{ flex: '1' }}>
       {renderBoard()}
     </div>
   );
