@@ -66,7 +66,7 @@ const StatSheet = ({ ownerName, primaryColor, secondaryColor }) => {
     return (
       <Paper variant="elevation" elevation={24} sx={{ margin: '5%', height: '100%', background: 'lightgrey', display: 'flex', flexDirection: 'column' }}>
         <h4>Moves Played</h4>
-        <Box style={{ background: primaryColor, maxHeight: '45vh', flex: '1', overflowY: 'scroll' }}>
+        <Box style={{ background: primaryColor, maxHeight: '40vh', flex: '1', overflowY: 'scroll' }}>
           <Stack>
             {moveHistory}
           </Stack>
