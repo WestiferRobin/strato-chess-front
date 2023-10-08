@@ -15,3 +15,14 @@
             - On board
             - Removed
         - History of Moves
+
+## Chess score
+Pawn: 1 point => 8 points
+Knight: 3 points => 6 points
+Bishop: 3 points => 6 points
+Rook: 5 points => 10 points
+Queen: 9 points => 9 points
+Knight: 0 points
+Total Points: 39 points
+
+
