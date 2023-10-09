@@ -1,13 +1,14 @@
 /* Square.css */
 .square {
-  width: 5.250vw;
-  height: 5.250vw;
+  width: 100%;
+  padding-top: 100%; /* Maintain a 1:1 aspect ratio by setting padding-top */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  text-align: center; /* Center text horizontally */
-  transition: background-color 0.3s ease; /* Add a smooth transition */
+  text-align: center;
+  transition: background-color 0.3s ease;
+  position: relative;
 }
 
 /* Define the default colors */
@@ -33,4 +34,18 @@
 
 .selected:hover {
   background-color: cyan;
+}
+
+/* Style for the chess piece */
+.piece {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
 }

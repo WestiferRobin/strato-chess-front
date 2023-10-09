@@ -4,7 +4,7 @@ import './Chessboard.css';
 import useBoard from '../../hooks/useBoard';
 import { configureSquare } from './board-helper';
 
-const Chessboard = () => {
+const Chessboard = ({white, black}) => {
   const { board, setBoard } = useBoard();
   const [selectedSquare, setSelectedSquare] = useState(null);
   const [highlightedSquares, setHighlightedSquares] = useState([]);

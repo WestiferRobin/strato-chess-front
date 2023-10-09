@@ -2,33 +2,40 @@ import { Box, Stack } from "@mui/material";
 import Chessboard from "../components/board/Chessboard";
 import StatSheet from "../components/sheet/StatSheet";
 
-const playerName = "Wes";
-const aiName = "Alpha";
 
-const allyPrimaryColor = 'cyan';
-const allySecondaryColor = 'black';
+const user = {
+  name: "Wes",
+  ranking: 800,
+  theme: {
+    primaryColor: "white",
+    secondaryColor: "black"
+  }
+}
 
-const enemyPrimaryColor = 'red';
-const enemySecondaryColor = 'black';
+const opponent = {
+  name: "Alpha",
+  ranking: 800,
+  theme: {
+    primaryColor: "red",
+    secondaryColor: "black"
+  }
+}
 
 const ClassicView = () => {
 
-    const renderTitle = () => {
-        return <h1 style={{ color: "white", backgroundColor: "grey", height: "5vh" }}>Strato Chess! {`${playerName} vs ${aiName}`}</h1>
-    }
+  const renderTitle = () => {
+      return <h1 style={{ color: "black", backgroundColor: "grey", height: "5vh" }}>Strato Chess! {`${user.name} vs ${opponent.name}`}</h1>
+  }
 
-    const renderSheet = (ownerName, primaryColor, secondaryColor) => {
-        return <StatSheet ownerName={ownerName} primaryColor={primaryColor} secondaryColor={secondaryColor} />
-    }
-
-    return <Box sx={{ width: "100vw", height: "100vh", backgroundColor: "yellow" }}>
-        {renderTitle()}
-        <Stack direction="row" spacing={2} sx={{ margin: 3, justifyContent: 'space-between', }}> {/* Use justifyContent */}
-            {renderSheet(playerName, allyPrimaryColor, allySecondaryColor)}
-            <Chessboard style={{ flex: '1' }}/>
-            {renderSheet(aiName, enemyPrimaryColor, enemySecondaryColor)}
-        </Stack>
-    </Box>
+  return <Box sx={{ width: "100vw", height: "97.5vh", backgroundColor: "black" }}>
+      {renderTitle()}
+      <Stack direction="row" spacing={1} sx={{ margin: 1, justifyContent: 'space-between', }}>
+          <StatSheet owner={user} />
+          <div >
+            <Chessboard white={user} black={opponent} />
+          </div>
+          <StatSheet owner={opponent} />
+      </Stack>
+  </Box>
 }
-
 export default ClassicView;

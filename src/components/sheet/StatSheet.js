@@ -1,51 +1,17 @@
 import { Box, Divider, Paper, Stack } from '@mui/material';
-import Pawn from '../pieces/Pawn';
-import Bishop from '../pieces/Bishop';
-import Knight from '../pieces/Knight';
-import Rook from '../pieces/Rook';
-import Queen from '../pieces/Queen';
-import King from '../pieces/King';
+import { getGraveyard } from '../pieces/piece-helper';
 
-const StatSheet = ({ ownerName, primaryColor, secondaryColor }) => {
-  const piecePoints = 39;
-
+const StatSheet = ({ owner }) => {
   const renderGraveyard = () => {
-    const firstRow = [];
-    const lastRow = [];
-    for (let index = 0; index < 8; index++) {
-      firstRow.push(<Pawn primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-      switch (index) {
-        case 0:
-        case 1:
-          lastRow.push(<Bishop primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-          break;
-        case 2:
-        case 3:
-          lastRow.push(<Knight primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-          break;
-        case 4:
-        case 5:
-          lastRow.push(<Rook primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-          break;
-        case 6:
-          lastRow.push(<Queen primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-          break;
-        case 7:
-          lastRow.push(<King primaryColor={primaryColor} secondaryColor={secondaryColor} />);
-          break;
-        default:
-          break;
-      }
-    }
-
+    const graveyard = getGraveyard(owner.theme);
     return (
-      <Paper variant="elevation" elevation={24} sx={{ margin: '5%', marginTop: '0', height: '10%', background: 'lightgrey', flex: '1'  }}>
-        <h3>Points: {piecePoints}</h3>
-        <Stack direction="row" sx={{flex: 1}}>
-          {firstRow}
+      <Paper variant="elevation" elevation={24} sx={{ margin: '5%', height: "20vh", marginTop: '0', background: 'lightgrey' }}>
+        <h3>Points: {graveyard.totalPoints}</h3>
+        <Stack direction="row" sx={{flex: 1, justifyContent: "center"}}>
+          {graveyard.firstRow}
         </Stack>
-        <Stack direction="row" sx={{flex: 1}}>
-          {lastRow}
+        <Stack direction="row" sx={{flex: 1, justifyContent: "center"}}>
+          {graveyard.lastRow}
         </Stack>
       </Paper>
     );
@@ -63,10 +29,11 @@ const StatSheet = ({ ownerName, primaryColor, secondaryColor }) => {
         </>
       );
     }
+    console.log(owner)
     return (
       <Paper variant="elevation" elevation={24} sx={{ margin: '5%', height: '100%', background: 'lightgrey', display: 'flex', flexDirection: 'column' }}>
         <h4>Moves Played</h4>
-        <Box style={{ background: primaryColor, maxHeight: '40vh', flex: '1', overflowY: 'scroll' }}>
+        <Box style={{ background: owner.theme.primaryColor, height: '45vh', overflowY: 'scroll' }}>
           <Stack>
             {moveHistory}
           </Stack>
@@ -77,7 +44,7 @@ const StatSheet = ({ ownerName, primaryColor, secondaryColor }) => {
 
   return (
     <Paper variant="elevation" sx={{ width: '25%', height: '100%', backgroundColor: 'grey', display: 'flex', flexDirection: 'column' }} elevation={10}>
-      <h2>{ownerName}</h2>
+      <h2>{owner.name}: {owner.ranking}</h2>
       <Stack flex="1">
         {renderGraveyard()}
         {renderPlayedMoves()}
