@@ -98,17 +98,37 @@ const Chessboard = ({white, black}) => {
         const isSelected = selectedSquare === position;
         const isHighlighted = highlightedSquares.includes(position);
 
-        chessboard.push(
-          <Square
+        let component;
+        if (piece === piece.toUpperCase()) {
+          component = <Square
             key={position}
             isBlack={isBlack}
             isSelected={isSelected}
             isHighlighted={isHighlighted}
             onClick={() => handleSquareClick(row, col)}
           >
-            {configureSquare(piece, row, col)}
+            {configureSquare(piece, row, col, white.theme)}
           </Square>
-        );
+        } else if (piece === piece.toLowerCase()) {
+          component = <Square
+            key={position}
+            isBlack={isBlack}
+            isSelected={isSelected}
+            isHighlighted={isHighlighted}
+            onClick={() => handleSquareClick(row, col)}
+          >
+            {configureSquare(piece, row, col, black.theme)}
+          </Square>
+        } else {
+          component = component = <Square
+            key={position}
+            isBlack={isBlack}
+            isSelected={isSelected}
+            isHighlighted={isHighlighted}
+            onClick={() => handleSquareClick(row, col)}
+          />
+        }
+        chessboard.push(component);
       }
     }
 

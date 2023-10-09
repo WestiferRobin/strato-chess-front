@@ -5,38 +5,20 @@ import Queen from '../pieces/Queen'; // Import the Queen component
 import King from '../pieces/King'; // Import the King component
 import Pawn from '../pieces/Pawn'; // Import the Pawn component
 
-const allyPrimaryColor = 'cyan';
-const allySecondaryColor = 'black';
-
-const enemyPrimaryColor = 'red';
-const enemySecondaryColor = 'black';
-
-export const configureSquare = (piece, row, col) => {
-  switch (piece) {
+export const configureSquare = (piece, row, col, theme) => {
+  switch (piece.toUpperCase()) {
     case 'R':
-      return <Rook key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
+      return <Rook key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     case 'N':
-      return <Knight key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
+      return <Knight key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     case 'B':
-      return <Bishop key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
+      return <Bishop key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     case 'Q':
-      return <Queen key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
+      return <Queen key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     case 'K':
-      return <King key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
+      return <King key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     case 'P':
-      return <Pawn key={`${row}-${col}`} primaryColor={allyPrimaryColor} secondaryColor={allySecondaryColor} />;
-    case 'r':
-      return <Rook key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
-    case 'n':
-      return <Knight key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
-    case 'b':
-      return <Bishop key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
-    case 'q':
-      return <Queen key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
-    case 'k':
-      return <King key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
-    case 'p':
-      return <Pawn key={`${row}-${col}`} primaryColor={enemyPrimaryColor} secondaryColor={enemySecondaryColor} />;
+      return <Pawn key={`${row}-${col}`} primaryColor={theme.primaryColor} secondaryColor={theme.secondaryColor} />;
     default:
       return null;
   }
