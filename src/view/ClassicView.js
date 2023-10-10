@@ -17,19 +17,24 @@ const ClassicView = () => {
     );
   };
 
+  // TODO: Remove once HomeView => ClassicView is done.
+  const renderDebugControlPanel = () => {
+    return <Stack direction="row">
+      <PrismSelect defaultValue={opponent.name} onHandle={setOpponentByName} />
+      <Button onClick={() => alert("game started")} variant="contained" color="success">
+        Initialize Game
+      </Button>
+      <Button onClick={() => alert("all sessions cleared")} variant="contained" color="error">
+        Clear Sessions
+      </Button>
+    </Stack>
+  }
+
   return (
     <Box sx={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
       <Stack direction="row" sx={{ justifyContent: "space-between", background: "grey" }}>
         {renderTitle()}
-        <Stack direction="row">
-          <PrismSelect defaultValue={opponent.name} onHandle={setOpponentByName} />
-          <Button onClick={() => alert("game started")} variant="contained" color="success">
-            Initialize Game
-          </Button>
-          <Button onClick={() => alert("all sessions cleared")} variant="contained" color="error">
-            Clear Sessions
-          </Button>
-        </Stack>
+        {renderDebugControlPanel()}
       </Stack>
       <Stack direction="row" spacing={1} sx={{ margin: 1, justifyContent: "space-between" }}>
         <StatSheet owner={user} />
