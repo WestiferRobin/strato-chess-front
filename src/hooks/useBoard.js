@@ -27,7 +27,6 @@ const useBoard = () => {
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [board, setBoard] = useState(initBoard);
-    console.log(board);
 
     const fetchBoard = async () => {
         try {

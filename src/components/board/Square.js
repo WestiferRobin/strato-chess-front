@@ -7,7 +7,6 @@ const Square = ({ isBlack, isSelected, children, onClick }) => {
   // Apply the "selected" class when the square is selected
   const squareClasses = `${squareClassName} ${isSelected ? 'selected' : ''}`;
 
-  console.log(children)
   return (
     <div className={squareClasses} onClick={onClick}>
       {children && (

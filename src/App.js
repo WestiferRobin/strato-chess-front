@@ -1,18 +1,9 @@
 import React from 'react';
 import './App.css';
-import ClassicView from './view/ClassicView';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import BrowserRouter
+import AppView from './view/AppView';
 
 const App = () => {
-  return (
-    <Router> {/* Use BrowserRouter here */}
-      <div className="App">
-        <Routes>
-          <Route path='/' element={<ClassicView />} /> {/* Use path instead of exact */}
-        </Routes>
-      </div>
-    </Router>
-  );
+  return <AppView />
 }
 
 export default App;

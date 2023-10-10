@@ -29,7 +29,7 @@ const StatSheet = ({ owner }) => {
         </>
       );
     }
-    console.log(owner)
+    
     return (
       <Paper variant="elevation" elevation={24} sx={{ margin: '5%', height: '100%', background: 'lightgrey', display: 'flex', flexDirection: 'column' }}>
         <h4>Moves Played</h4>
